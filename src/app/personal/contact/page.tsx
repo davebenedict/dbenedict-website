@@ -118,10 +118,26 @@ export default function ContactPage() {
                   <span className="font-medium">Email:</span> dave.d.benedict@gmail.com
                 </p>
                 <p className="text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">LinkedIn:</span> Connect with me on LinkedIn
+                  <span className="font-medium">LinkedIn:</span>{' '}
+                  <a 
+                    href="https://www.linkedin.com/in/dave-benedict/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                  >
+                    linkedin.com/in/dave-benedict
+                  </a>
                 </p>
                 <p className="text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">GitHub:</span> Check out my projects
+                  <span className="font-medium">GitHub:</span>{' '}
+                  <a 
+                    href="https://github.com/davebenedict" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                  >
+                    github.com/davebenedict
+                  </a>
                 </p>
               </div>
             </div>

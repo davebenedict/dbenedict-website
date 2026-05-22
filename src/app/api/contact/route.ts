@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -22,26 +25,36 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Implement email sending
-    // Options:
-    // 1. Use Resend (recommended): https://resend.com
-    // 2. Use SendGrid: https://sendgrid.com
-    // 3. Use Nodemailer with SMTP
-    // 4. Use Vercel's built-in email service
-
-    // For now, log to console (you'll see this in Vercel logs)
-    console.log('Contact form submission:', {
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
+    // Send email via Resend
+    const { data, error } = await resend.emails.send({
+      from: 'Contact Form <onboarding@resend.dev>',
+      to: process.env.CONTACT_EMAIL || 'dave@dbenedict.com',
+      replyTo: email,
+      subject: `Contact Form: ${subject}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>From:</strong> ${name} (${email})</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p style="color: #666; font-size: 12px;">Sent from dbenedict.com contact form</p>
+      `,
     });
 
-    // Return success response
+    if (error) {
+      console.error('Resend error:', error);
+      return NextResponse.json(
+        { error: 'Failed to send message. Please try again.' },
+        { status: 500 }
+      );
+    }
+
+    console.log('Email sent successfully:', data);
+
     return NextResponse.json({
       success: true,
-      message: 'Message received! We\'ll get back to you soon.',
+      message: 'Message sent successfully!',
     });
   } catch (error) {
     console.error('Contact form error:', error);

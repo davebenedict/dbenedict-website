@@ -62,32 +62,32 @@ export default function PersonalHome() {
 
         <div className="mt-20">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
+            <Link href="/personal/portfolio-dynamic" className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg hover:shadow-xl transition-shadow cursor-pointer">
               <div className="px-4 py-5 sm:p-6">
                 <h3 className="text-lg font-medium text-gray-900 dark:text-white">Portfolio</h3>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Check out my latest projects and work samples.
                 </p>
               </div>
-            </div>
+            </Link>
 
-            <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
+            <Link href="/personal/blog" className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg hover:shadow-xl transition-shadow cursor-pointer">
               <div className="px-4 py-5 sm:p-6">
                 <h3 className="text-lg font-medium text-gray-900 dark:text-white">Blog</h3>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Read my thoughts on technology, design, and more.
                 </p>
               </div>
-            </div>
+            </Link>
 
-            <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
+            <Link href="/personal/contact" className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg hover:shadow-xl transition-shadow cursor-pointer">
               <div className="px-4 py-5 sm:p-6">
                 <h3 className="text-lg font-medium text-gray-900 dark:text-white">Contact</h3>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Get in touch for collaborations or inquiries.
                 </p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </main>

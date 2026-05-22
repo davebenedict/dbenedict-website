@@ -17,6 +17,9 @@ export default function PersonalHome() {
                 <Link href="/personal/about" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
+                <Link href="/personal/portfolio-dynamic" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  Portfolio
+                </Link>
                 <Link href="/personal/blog" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   Blog
                 </Link>

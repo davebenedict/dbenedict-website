@@ -48,7 +48,7 @@ To actually receive emails, choose one of these options:
 4. **Add to Vercel Environment Variables:**
    - Vercel Dashboard → Settings → Environment Variables
    - Add: `RESEND_API_KEY` = `your_api_key`
-   - Add: `CONTACT_EMAIL` = `dave.d.benedict@gmail.com`
+   - Add: `CONTACT_EMAIL` = `dave@dbenedict.com`
 
 5. **Update API Route:**
 
@@ -83,7 +83,7 @@ To actually receive emails, choose one of these options:
        // Send email via Resend
        await resend.emails.send({
          from: 'Contact Form <onboarding@resend.dev>', // Use your verified domain
-         to: process.env.CONTACT_EMAIL || 'dave.d.benedict@gmail.com',
+         to: process.env.CONTACT_EMAIL || 'dave@dbenedict.com',
          replyTo: email,
          subject: `Contact Form: ${subject}`,
          html: `
@@ -124,17 +124,17 @@ To actually receive emails, choose one of these options:
 4. Add `SENDGRID_API_KEY` to Vercel env vars
 5. Update API route similar to Resend example
 
-### Option 3: Nodemailer (Use Your Gmail)
+### Option 3: Nodemailer (Use Custom SMTP)
 
 **Setup:**
 
 1. Install: `npm install nodemailer`
-2. Enable "App Passwords" in Gmail settings
+2. Get SMTP credentials from your email provider
 3. Add to Vercel env vars:
-   - `SMTP_HOST=smtp.gmail.com`
+   - `SMTP_HOST=your_smtp_host`
    - `SMTP_PORT=587`
-   - `SMTP_USER=dave.d.benedict@gmail.com`
-   - `SMTP_PASSWORD=your_app_password`
+   - `SMTP_USER=dave@dbenedict.com`
+   - `SMTP_PASSWORD=your_smtp_password`
 
 4. Update API route:
 

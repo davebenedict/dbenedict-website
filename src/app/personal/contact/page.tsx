@@ -183,7 +183,13 @@ export default function ContactPage() {
               </h2>
               <div className="space-y-3">
                 <p className="text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">Email:</span> dave.d.benedict@gmail.com
+                  <span className="font-medium">Email:</span>{' '}
+                  <a 
+                    href="mailto:dave@dbenedict.com"
+                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                  >
+                    dave@dbenedict.com
+                  </a>
                 </p>
                 <p className="text-gray-600 dark:text-gray-300">
                   <span className="font-medium">LinkedIn:</span>{' '}

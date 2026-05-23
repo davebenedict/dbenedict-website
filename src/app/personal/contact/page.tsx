@@ -62,21 +62,21 @@ export default function ContactPage() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0">
               <Link href="/personal">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">David Benedict</h1>
+                <h1 className="text-2xl font-bold text-cyan-400 text-glow animate-glow-pulse">DAVID BENEDICT</h1>
               </Link>
             </div>
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/personal" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+              <div className="ml-10 flex items-baseline space-x-1">
+                <Link href="/personal" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Home
                 </Link>
-                <Link href="/personal/about" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/about" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   About
                 </Link>
-                <Link href="/personal/blog" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/blog" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Blog
                 </Link>
-                <Link href="/personal/contact" className="text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/contact" className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Contact
                 </Link>
               </div>
@@ -86,32 +86,32 @@ export default function ContactPage() {
       </nav>
 
       <main className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden">
+        <GlowCard glowColor="purple">
           <div className="px-6 py-8 sm:p-10">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              Get in Touch
+            <h1 className="text-4xl font-bold text-cyan-400 mb-6 font-mono">
+              [ ESTABLISH CONNECTION ]
             </h1>
             
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.
+            <p className="text-lg text-gray-300 mb-8">
+              Initiate communication protocol. Fill out the form below to transmit your message.
             </p>
 
             {status === 'success' && (
-              <div className="mb-6 p-4 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-200 rounded-md">
-                ✓ Message sent successfully! I'll get back to you soon.
+              <div className="mb-6 p-4 bg-green-500/10 border border-green-500/50 text-green-400 rounded-md font-mono">
+                ✓ TRANSMISSION SUCCESSFUL - Message received. Response incoming.
               </div>
             )}
 
             {status === 'error' && (
-              <div className="mb-6 p-4 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-200 rounded-md">
-                ✗ {errorMessage}
+              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/50 text-red-400 rounded-md font-mono">
+                ✗ TRANSMISSION FAILED - {errorMessage}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Name
+                <label htmlFor="name" className="block text-sm font-medium text-cyan-400 mb-2 font-mono">
+                  IDENTITY
                 </label>
                 <input
                   type="text"
@@ -119,15 +119,15 @@ export default function ContactPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="Your name"
+                  className="w-full px-4 py-2 bg-black/50 border border-cyan-500/30 rounded-md focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-gray-500"
+                  placeholder="Enter designation"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Email
+                <label htmlFor="email" className="block text-sm font-medium text-cyan-400 mb-2 font-mono">
+                  TRANSMISSION ADDRESS
                 </label>
                 <input
                   type="email"
@@ -135,15 +135,15 @@ export default function ContactPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-2 bg-black/50 border border-cyan-500/30 rounded-md focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-gray-500"
+                  placeholder="user@domain.net"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Subject
+                <label htmlFor="subject" className="block text-sm font-medium text-cyan-400 mb-2 font-mono">
+                  SUBJECT CODE
                 </label>
                 <input
                   type="text"
@@ -151,15 +151,15 @@ export default function ContactPage() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="What's this about?"
+                  className="w-full px-4 py-2 bg-black/50 border border-cyan-500/30 rounded-md focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-gray-500"
+                  placeholder="Message classification"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Message
+                <label htmlFor="message" className="block text-sm font-medium text-cyan-400 mb-2 font-mono">
+                  MESSAGE PAYLOAD
                 </label>
                 <textarea
                   id="message"
@@ -167,8 +167,8 @@ export default function ContactPage() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="Your message..."
+                  className="w-full px-4 py-2 bg-black/50 border border-cyan-500/30 rounded-md focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-gray-500"
+                  placeholder="Enter transmission data..."
                   required
                 />
               </div>
@@ -177,45 +177,45 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex justify-center py-3 px-4 border-2 border-cyan-500 text-cyan-400 font-bold rounded-lg hover:bg-cyan-500 hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed font-mono"
                 >
-                  {status === 'loading' ? 'Sending...' : 'Send Message'}
+                  {status === 'loading' ? '[ TRANSMITTING... ]' : '[ TRANSMIT MESSAGE ]'}
                 </button>
               </div>
             </form>
 
-            <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Other Ways to Connect
+            <div className="mt-12 pt-8 border-t border-cyan-500/20">
+              <h2 className="text-2xl font-bold text-white mb-4 font-mono">
+                [ ALTERNATE CHANNELS ]
               </h2>
               <div className="space-y-3">
-                <p className="text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">Email:</span>{' '}
+                <p className="text-gray-300">
+                  <span className="font-medium text-cyan-400">Direct Link:</span>{' '}
                   <a 
                     href="mailto:dave@dbenedict.com"
-                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                    className="text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     dave@dbenedict.com
                   </a>
                 </p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">LinkedIn:</span>{' '}
+                <p className="text-gray-300">
+                  <span className="font-medium text-cyan-400">Network:</span>{' '}
                   <a 
                     href="https://www.linkedin.com/in/dave-benedict/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                    className="text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     linkedin.com/in/dave-benedict
                   </a>
                 </p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">GitHub:</span>{' '}
+                <p className="text-gray-300">
+                  <span className="font-medium text-cyan-400">Repository:</span>{' '}
                   <a 
                     href="https://github.com/davebenedict" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                    className="text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     github.com/davebenedict
                   </a>
@@ -223,16 +223,17 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </div>
+        </GlowCard>
       </main>
 
-      <footer className="bg-white dark:bg-gray-800 mt-20">
+      <footer className="bg-black/50 backdrop-blur-md border-t border-cyan-500/20 mt-20">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 dark:text-gray-400">
-            &copy; 2026 David Benedict. All rights reserved.
+          <p className="text-center text-gray-400">
+            &copy; 2026 <span className="text-cyan-400">David Benedict</span>. All rights reserved.
           </p>
         </div>
       </footer>
+      </div>
     </div>
   );
 }

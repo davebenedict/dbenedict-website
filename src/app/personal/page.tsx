@@ -2,9 +2,12 @@ import Link from 'next/link';
 import MatrixBackground from '@/components/MatrixBackground';
 import GlowCard from '@/components/GlowCard';
 import ReadAloud from '@/components/ReadAloud';
+import { VoiceProvider } from '@/contexts/VoiceContext';
+import VoiceToggle from '@/components/VoiceToggle';
 
 export default function PersonalHome() {
   return (
+    <VoiceProvider>
     <div className="min-h-screen relative bg-black overflow-hidden">
       {/* Matrix background */}
       <MatrixBackground />
@@ -23,8 +26,8 @@ export default function PersonalHome() {
             <div className="flex-shrink-0">
               <h1 className="text-2xl font-bold text-cyan-400 text-glow animate-glow-pulse">DAVID BENEDICT</h1>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-1">
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="flex items-baseline space-x-1">
                 <Link href="/personal" className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Home
                 </Link>
@@ -41,6 +44,7 @@ export default function PersonalHome() {
                   Contact
                 </Link>
               </div>
+              <VoiceToggle />
             </div>
           </div>
         </div>
@@ -162,5 +166,6 @@ export default function PersonalHome() {
       </footer>
       </div>
     </div>
+    </VoiceProvider>
   );
 }

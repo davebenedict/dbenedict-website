@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import { useVoice } from '@/contexts/VoiceContext';
 
 interface ReadAloudProps {
   children: React.ReactNode;
@@ -11,8 +12,12 @@ interface ReadAloudProps {
 export default function ReadAloud({ children, text, className = '' }: ReadAloudProps) {
   const [isReading, setIsReading] = useState(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const { isVoiceEnabled } = useVoice();
 
   const handleMouseEnter = () => {
+    // Only read if voice is enabled
+    if (!isVoiceEnabled) return;
+    
     if ('speechSynthesis' in window) {
       // Cancel any ongoing speech
       window.speechSynthesis.cancel();

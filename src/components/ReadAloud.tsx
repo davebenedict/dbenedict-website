@@ -26,9 +26,9 @@ export default function ReadAloud({ children, text, className = '' }: ReadAloudP
       const utterance = new SpeechSynthesisUtterance(text);
       utteranceRef.current = utterance;
       
-      // Female cyberpunk British voice - smooth but robotic
-      utterance.rate = 0.85; // Moderate speed, confident
-      utterance.pitch = 0.9; // Slightly lower than normal female voice
+      // Young female cyberpunk British voice - energetic and modern
+      utterance.rate = 1.0; // Normal speed, youthful energy
+      utterance.pitch = 1.2; // Higher pitch for younger sound (20s)
       utterance.volume = 1.0; // Full volume for presence
       
       // Try to select a British female voice

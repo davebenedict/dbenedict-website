@@ -21,7 +21,7 @@ export function getAllPosts(): BlogPost[] {
   const fileNames = fs.readdirSync(postsDirectory);
   
   const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
+    .filter((fileName) => fileName.endsWith('.md') && !fileName.startsWith('_'))
     .map((fileName) => {
       // Remove ".md" from file name to get slug
       const slug = fileName.replace(/\.md$/, '');
@@ -82,7 +82,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
 export function getAllPostSlugs() {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
+    .filter((fileName) => fileName.endsWith('.md') && !fileName.startsWith('_'))
     .map((fileName) => {
       return {
         slug: fileName.replace(/\.md$/, ''),

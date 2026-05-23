@@ -6,6 +6,7 @@ import MatrixBackground from '@/components/MatrixBackground';
 import GlowCard from '@/components/GlowCard';
 import { VoiceProvider } from '@/contexts/VoiceContext';
 import VoiceToggle from '@/components/VoiceToggle';
+import ReadAloud from '@/components/ReadAloud';
 
 interface GitHubRepo {
   id: number;
@@ -79,6 +80,7 @@ export default function DynamicPortfolioPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <ReadAloud text="Project Archive. GitHub Projects. Automatically synced from my GitHub profile. View my repositories at github.com slash davebenedict.">
         <div className="text-center mb-12">
           <div className="inline-block mb-4">
             <span className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-mono">
@@ -105,6 +107,7 @@ export default function DynamicPortfolioPage() {
             @davebenedict
           </a>
         </div>
+        </ReadAloud>
 
         {loading && (
           <div className="flex justify-center items-center py-12">

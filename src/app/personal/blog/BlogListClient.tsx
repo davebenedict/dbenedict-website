@@ -5,6 +5,7 @@ import MatrixBackground from '@/components/MatrixBackground';
 import GlowCard from '@/components/GlowCard';
 import { VoiceProvider } from '@/contexts/VoiceContext';
 import VoiceToggle from '@/components/VoiceToggle';
+import ReadAloud from '@/components/ReadAloud';
 import { BlogPost } from '@/lib/blog';
 
 export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
@@ -49,6 +50,7 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
       </nav>
 
       <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <ReadAloud text="Data Stream. Blog Transmissions. Technical insights, tutorials, and thoughts on emerging technologies.">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <span className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-mono">
@@ -64,6 +66,7 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
             Technical insights, tutorials, and thoughts on emerging technologies
           </p>
         </div>
+        </ReadAloud>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (

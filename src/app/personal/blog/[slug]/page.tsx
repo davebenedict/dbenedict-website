@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { getPostBySlug, getAllPostSlugs } from '@/lib/blog';
 import { notFound } from 'next/navigation';
+import MatrixBackground from '@/components/MatrixBackground';
+import GlowCard from '@/components/GlowCard';
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
@@ -19,27 +21,32 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <nav className="bg-white dark:bg-gray-800 shadow-sm">
+    <div className="min-h-screen relative bg-black overflow-hidden">
+      <MatrixBackground />
+      <div className="fixed inset-0 bg-grid opacity-20 pointer-events-none" style={{ zIndex: 1 }} />
+      <div className="fixed inset-0 bg-gradient-to-br from-cyan-950/50 via-blue-950/50 to-black pointer-events-none" style={{ zIndex: 2 }} />
+      
+      <div className="relative" style={{ zIndex: 3 }}>
+      <nav className="bg-black/50 backdrop-blur-md border-b border-cyan-500/20 shadow-lg shadow-cyan-500/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0">
               <Link href="/personal">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">David Benedict</h1>
+                <h1 className="text-2xl font-bold text-cyan-400 text-glow animate-glow-pulse">DAVID BENEDICT</h1>
               </Link>
             </div>
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/personal" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+              <div className="ml-10 flex items-baseline space-x-1">
+                <Link href="/personal" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Home
                 </Link>
-                <Link href="/personal/about" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/about" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   About
                 </Link>
-                <Link href="/personal/blog" className="text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/blog" className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Blog
                 </Link>
-                <Link href="/personal/contact" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/contact" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Contact
                 </Link>
               </div>
@@ -51,7 +58,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <main className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <Link
           href="/personal/blog"
-          className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 mb-8"
+          className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-8 font-mono"
         >
           <svg
             className="w-5 h-5 mr-2"
@@ -66,23 +73,23 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Blog
+          &lt; RETURN TO STREAM
         </Link>
 
-        <article className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+        <GlowCard glowColor="blue">
           <div className="px-6 py-8 sm:p-10">
             <div className="mb-6">
-              <span className="inline-block px-3 py-1 text-sm font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900 rounded-full">
-                {post.category}
+              <span className="inline-block px-3 py-1 text-sm font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 rounded-full font-mono">
+                {post.category.toUpperCase()}
               </span>
             </div>
 
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-4xl font-bold text-white mb-4">
               {post.title}
             </h1>
 
-            <div className="flex items-center text-gray-600 dark:text-gray-400 mb-8">
-              <span>{post.author}</span>
+            <div className="flex items-center text-gray-400 mb-8 font-mono text-sm">
+              <span className="text-cyan-400">{post.author}</span>
               <span className="mx-2">•</span>
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString('en-US', {
@@ -95,41 +102,43 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
             <div
               className="prose prose-lg dark:prose-invert max-w-none
-                prose-headings:text-gray-900 dark:prose-headings:text-white
-                prose-p:text-gray-600 dark:prose-p:text-gray-300
-                prose-a:text-indigo-600 dark:prose-a:text-indigo-400
-                prose-strong:text-gray-900 dark:prose-strong:text-white
-                prose-code:text-indigo-600 dark:prose-code:text-indigo-400
-                prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950
-                prose-li:text-gray-600 dark:prose-li:text-gray-300"
+                prose-headings:text-white
+                prose-p:text-gray-300
+                prose-a:text-cyan-400 hover:prose-a:text-cyan-300
+                prose-strong:text-white
+                prose-code:text-cyan-400 prose-code:bg-cyan-500/10 prose-code:px-1 prose-code:rounded
+                prose-pre:bg-black/50 prose-pre:border prose-pre:border-cyan-500/30
+                prose-li:text-gray-300
+                prose-blockquote:border-cyan-500/50 prose-blockquote:text-gray-300"
               dangerouslySetInnerHTML={{ __html: post.content || '' }}
             />
           </div>
-        </article>
+        </GlowCard>
 
         <div className="mt-8 flex justify-between items-center">
           <Link
             href="/personal/blog"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+            className="inline-flex items-center px-4 py-2 border-2 border-cyan-500 text-cyan-400 font-bold rounded-lg hover:bg-cyan-500 hover:text-black transition-all font-mono"
           >
-            ← All Posts
+            ← ALL TRANSMISSIONS
           </Link>
           <Link
             href="/personal/contact"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
+            className="inline-flex items-center px-4 py-2 border-2 border-gray-500 text-gray-300 font-bold rounded-lg hover:border-cyan-500 hover:text-cyan-400 transition-all font-mono"
           >
-            Get in Touch →
+            OPEN CHANNEL →
           </Link>
         </div>
       </main>
 
-      <footer className="bg-white dark:bg-gray-800 mt-20">
+      <footer className="bg-black/50 backdrop-blur-md border-t border-cyan-500/20 mt-20">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 dark:text-gray-400">
-            &copy; 2026 David Benedict. All rights reserved.
+          <p className="text-center text-gray-400">
+            &copy; 2026 <span className="text-cyan-400">David Benedict</span>. All rights reserved.
           </p>
         </div>
       </footer>
+      </div>
     </div>
   );
 }

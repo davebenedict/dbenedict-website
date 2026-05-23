@@ -38,26 +38,32 @@ export default function MatrixBackground() {
       for (let i = 0; i < drops.length; i++) {
         // Calculate 3D perspective
         const depth = depths[i];
-        const scale = 0.5 + depth * 0.5; // Scale based on depth (0.5 to 1.0)
-        const alpha = 0.3 + depth * 0.7; // Opacity based on depth
+        const scale = 0.4 + depth * 0.6; // Scale based on depth (0.4 to 1.0)
+        const alpha = 0.2 + depth * 0.8; // Opacity based on depth
         
-        // Add wave/curve effect
-        const wave = Math.sin(time + i * 0.1) * 30 * depth;
-        const xOffset = i * fontSize + wave;
+        // Add dramatic wave/curve effect with multiple frequencies
+        const wave1 = Math.sin(time + i * 0.05) * 80 * depth;
+        const wave2 = Math.cos(time * 0.7 + i * 0.08) * 50 * (1 - depth);
+        const yPosition = drops[i] * fontSize;
+        const wave3 = Math.sin(yPosition * 0.01 + time) * 60 * depth;
+        
+        const xOffset = i * fontSize + wave1 + wave2 + wave3;
         
         // Adjust font size based on depth for perspective
         const adjustedFontSize = fontSize * scale;
         
-        // Set color with depth-based opacity
-        ctx.fillStyle = `rgba(0, 255, 255, ${alpha})`;
+        // Set color with depth-based opacity and slight color shift
+        const colorShift = Math.floor(depth * 50);
+        ctx.fillStyle = `rgba(${colorShift}, ${255 - colorShift}, 255, ${alpha})`;
         ctx.font = `${adjustedFontSize}px monospace`;
         
         const text = characters[Math.floor(Math.random() * characters.length)];
         
-        // Add slight rotation/skew for 3D effect
+        // Add rotation and skew for 3D effect
         ctx.save();
-        ctx.translate(xOffset, drops[i] * fontSize);
-        ctx.scale(1, 1 + depth * 0.2); // Slight vertical stretch based on depth
+        ctx.translate(xOffset, yPosition);
+        ctx.rotate((Math.sin(time + i * 0.1) * depth - 0.5) * 0.1); // Slight rotation
+        ctx.scale(1 + Math.sin(time + i * 0.05) * 0.1 * depth, 1 + depth * 0.3); // Dynamic scaling
         ctx.fillText(text, 0, 0);
         ctx.restore();
 

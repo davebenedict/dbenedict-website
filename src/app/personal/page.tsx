@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import MatrixBackground from '@/components/MatrixBackground';
 import GlowCard from '@/components/GlowCard';
+import ReadAloud from '@/components/ReadAloud';
 
 export default function PersonalHome() {
   return (
@@ -54,6 +55,7 @@ export default function PersonalHome() {
             </span>
           </div>
           
+          <ReadAloud text="Connected to David Benedict. Developer. Creator. Innovator. Explore the digital realm. Discover cutting-edge projects, insightful articles, and innovative solutions.">
           <h1 className="text-5xl font-extrabold sm:text-6xl md:text-7xl mb-6">
             <span className="block text-white mb-2">CONNECTED TO</span>
             <span className="block text-cyan-400 text-glow animate-glow-pulse">
@@ -67,6 +69,7 @@ export default function PersonalHome() {
           <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed">
             Explore the digital realm. Discover cutting-edge projects, insightful articles, and innovative solutions.
           </p>
+          </ReadAloud>
           
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Link

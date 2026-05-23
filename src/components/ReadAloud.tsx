@@ -21,10 +21,10 @@ export default function ReadAloud({ children, text, className = '' }: ReadAloudP
       const utterance = new SpeechSynthesisUtterance(text);
       utteranceRef.current = utterance;
       
-      // Retro computer voice settings
-      utterance.rate = 0.85; // Slower, more deliberate (retro computer speed)
-      utterance.pitch = 0.7; // Lower pitch for robotic sound
-      utterance.volume = 0.9; // Slightly louder for that old speaker effect
+      // HAL 9000 style - very deep and slow
+      utterance.rate = 0.65; // Much slower, very deliberate
+      utterance.pitch = 0.5; // Very low pitch for deep robotic sound
+      utterance.volume = 1.0; // Full volume for that powerful computer voice
       
       // Try to select a more robotic-sounding voice
       const voices = window.speechSynthesis.getVoices();

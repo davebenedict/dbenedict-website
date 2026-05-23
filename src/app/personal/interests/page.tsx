@@ -114,32 +114,93 @@ export default function InterestsPage() {
             </div>
           </GlowCard>
 
-          {/* Placeholder for more interests */}
+          {/* Intellivision Games Interest */}
           <GlowCard glowColor="purple">
-            <div className="p-6 h-full flex flex-col items-center justify-center text-center">
-              <div className="w-16 h-16 bg-purple-500/10 border-2 border-purple-500/30 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
+            <div className="p-6 h-full flex flex-col">
+              <div className="mb-4">
+                <div className="w-16 h-16 bg-purple-500/10 border-2 border-purple-500/30 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-3">
+                  Retro Gaming
+                </h2>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">More Coming Soon</h3>
-              <p className="text-gray-400 text-sm font-mono">
-                [ ADDITIONAL INTERESTS LOADING... ]
+              
+              <p className="text-gray-300 mb-6 flex-grow">
+                Nostalgia for classic Intellivision games from the golden age of gaming. These vintage titles bring back memories of simpler times and pioneering game design.
               </p>
+
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-gray-400">
+                  <span className="text-purple-400 font-mono mr-2">PLATFORM:</span>
+                  <span>Intellivision</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-400">
+                  <span className="text-purple-400 font-mono mr-2">ERA:</span>
+                  <span>1979-1990</span>
+                </div>
+              </div>
+
+              <a
+                href="https://www.intellivision.us/intvgames/nostalgia/nostalgia.php"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-400 font-bold rounded-lg hover:bg-purple-500 hover:text-black transition-all font-mono"
+              >
+                EXPLORE GAMES
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </div>
           </GlowCard>
 
+          {/* CrossFit Interest */}
           <GlowCard glowColor="blue">
-            <div className="p-6 h-full flex flex-col items-center justify-center text-center">
-              <div className="w-16 h-16 bg-blue-500/10 border-2 border-blue-500/30 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
+            <div className="p-6 h-full flex flex-col">
+              <div className="mb-4">
+                <div className="w-16 h-16 bg-blue-500/10 border-2 border-blue-500/30 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-3">
+                  CrossFit
+                </h2>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">More Coming Soon</h3>
-              <p className="text-gray-400 text-sm font-mono">
-                [ ADDITIONAL INTERESTS LOADING... ]
+              
+              <p className="text-gray-300 mb-6 flex-grow">
+                We own CrossFit Kapaa, where fitness meets community. My wonderful partner Bethanie is a competitive Masters athlete who inspires everyone around her with her dedication and strength.
               </p>
+
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-gray-400">
+                  <span className="text-blue-400 font-mono mr-2">GYM:</span>
+                  <span>CrossFit Kapaa</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-400">
+                  <span className="text-blue-400 font-mono mr-2">ATHLETE:</span>
+                  <span>Bethanie Werner</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-400">
+                  <span className="text-blue-400 font-mono mr-2">LEVEL:</span>
+                  <span>Masters Competitor</span>
+                </div>
+              </div>
+
+              <a
+                href="https://www.instagram.com/bethaniewerner"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-400 font-bold rounded-lg hover:bg-blue-500 hover:text-black transition-all font-mono"
+              >
+                FOLLOW BETHANIE
+                <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
             </div>
           </GlowCard>
         </div>

@@ -26,22 +26,27 @@ export default function ReadAloud({ children, text, className = '' }: ReadAloudP
       const utterance = new SpeechSynthesisUtterance(text);
       utteranceRef.current = utterance;
       
-      // HAL 9000 style - very deep and slow
-      utterance.rate = 0.65; // Much slower, very deliberate
-      utterance.pitch = 0.5; // Very low pitch for deep robotic sound
-      utterance.volume = 1.0; // Full volume for that powerful computer voice
+      // Female cyberpunk British voice - smooth but robotic
+      utterance.rate = 0.85; // Moderate speed, confident
+      utterance.pitch = 0.9; // Slightly lower than normal female voice
+      utterance.volume = 1.0; // Full volume for presence
       
-      // Try to select a more robotic-sounding voice
+      // Try to select a British female voice
       const voices = window.speechSynthesis.getVoices();
-      const roboticVoice = voices.find(voice => 
-        voice.name.includes('Google UK English Male') || 
-        voice.name.includes('Microsoft David') ||
-        voice.name.includes('Alex') ||
-        voice.name.includes('Daniel') ||
-        voice.lang.startsWith('en')
+      const britishFemaleVoice = voices.find(voice => 
+        // Prefer Google UK Female voices
+        voice.name.includes('Google UK English Female') ||
+        voice.name.includes('Microsoft Hazel') || // UK Female
+        voice.name.includes('Microsoft Susan') || // UK Female
+        voice.name.includes('Kate') || // UK Female (macOS)
+        voice.name.includes('Serena') || // UK Female (macOS)
+        // Fallback to any UK voice
+        (voice.lang === 'en-GB' && voice.name.toLowerCase().includes('female')) ||
+        // Last resort: any female English voice
+        (voice.lang.startsWith('en') && voice.name.toLowerCase().includes('female'))
       );
-      if (roboticVoice) {
-        utterance.voice = roboticVoice;
+      if (britishFemaleVoice) {
+        utterance.voice = britishFemaleVoice;
       }
       
       // Event handlers

@@ -1,12 +1,19 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
+import MatrixBackground from '@/components/MatrixBackground';
+import GlowCard from '@/components/GlowCard';
 
 export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <nav className="bg-white dark:bg-gray-800 shadow-sm">
+    <div className="min-h-screen relative bg-black overflow-hidden">
+      <MatrixBackground />
+      <div className="fixed inset-0 bg-grid opacity-20 pointer-events-none" style={{ zIndex: 1 }} />
+      <div className="fixed inset-0 bg-gradient-to-br from-cyan-950/50 via-blue-950/50 to-black pointer-events-none" style={{ zIndex: 2 }} />
+      
+      <div className="relative" style={{ zIndex: 3 }}>
+      <nav className="bg-black/50 backdrop-blur-md border-b border-cyan-500/20 shadow-lg shadow-cyan-500/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0">

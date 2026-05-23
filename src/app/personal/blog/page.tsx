@@ -1,29 +1,8 @@
 import Link from 'next/link';
+import { getAllPosts } from '@/lib/blog';
 
 export default function BlogPage() {
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'Getting Started with Next.js',
-      excerpt: 'Learn how to build modern web applications with Next.js and React.',
-      date: 'May 20, 2026',
-      category: 'Web Development',
-    },
-    {
-      id: 2,
-      title: 'Building with Subdomain Routing',
-      excerpt: 'A guide to implementing subdomain routing in Next.js applications.',
-      date: 'May 18, 2026',
-      category: 'Tutorial',
-    },
-    {
-      id: 3,
-      title: 'Deploying to Vercel',
-      excerpt: 'Step-by-step guide to deploying your Next.js app to Vercel.',
-      date: 'May 15, 2026',
-      category: 'DevOps',
-    },
-  ];
+  const posts = getAllPosts();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
@@ -66,9 +45,9 @@ export default function BlogPage() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
+          {posts.map((post) => (
             <article
-              key={post.id}
+              key={post.slug}
               className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
               <div className="p-6">
@@ -77,7 +56,11 @@ export default function BlogPage() {
                     {post.category}
                   </span>
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    {post.date}
+                    {new Date(post.date).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
                   </span>
                 </div>
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
@@ -87,7 +70,7 @@ export default function BlogPage() {
                   {post.excerpt}
                 </p>
                 <Link
-                  href={`/personal/blog/${post.id}`}
+                  href={`/personal/blog/${post.slug}`}
                   className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium"
                 >
                   Read more
@@ -110,11 +93,13 @@ export default function BlogPage() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            More blog posts coming soon! This section will be powered by Sanity CMS.
-          </p>
-        </div>
+        {posts.length === 0 && (
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              No blog posts yet. Check back soon!
+            </p>
+          </div>
+        )}
       </main>
 
       <footer className="bg-white dark:bg-gray-800 mt-20">

@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { useState, FormEvent } from 'react';
 import MatrixBackground from '@/components/MatrixBackground';
 import GlowCard from '@/components/GlowCard';
+import { VoiceProvider } from '@/contexts/VoiceContext';
+import VoiceToggle from '@/components/VoiceToggle';
+import ReadAloud from '@/components/ReadAloud';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -51,6 +54,7 @@ export default function ContactPage() {
     }));
   };
   return (
+    <VoiceProvider>
     <div className="min-h-screen relative bg-black overflow-hidden">
       <MatrixBackground />
       <div className="fixed inset-0 bg-grid opacity-20 pointer-events-none" style={{ zIndex: 1 }} />
@@ -65,8 +69,8 @@ export default function ContactPage() {
                 <h1 className="text-2xl font-bold text-cyan-400 text-glow animate-glow-pulse">DAVID BENEDICT</h1>
               </Link>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-1">
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="flex items-baseline space-x-1">
                 <Link href="/personal" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Home
                 </Link>
@@ -83,12 +87,14 @@ export default function ContactPage() {
                   Contact
                 </Link>
               </div>
+              <VoiceToggle />
             </div>
           </div>
         </div>
       </nav>
 
       <main className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <ReadAloud text="Establish Connection. Initiate communication protocol. Fill out the form below to transmit your message.">
         <GlowCard glowColor="purple">
           <div className="px-6 py-8 sm:p-10">
             <h1 className="text-4xl font-bold text-cyan-400 mb-6 font-mono">
@@ -249,6 +255,7 @@ export default function ContactPage() {
             </div>
           </div>
         </GlowCard>
+        </ReadAloud>
       </main>
 
       <footer className="bg-black/50 backdrop-blur-md border-t border-cyan-500/20 mt-20">
@@ -260,5 +267,6 @@ export default function ContactPage() {
       </footer>
       </div>
     </div>
+    </VoiceProvider>
   );
 }

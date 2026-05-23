@@ -210,6 +210,28 @@ export default function ContactPage() {
                   </a>
                 </p>
                 <p className="text-gray-300">
+                  <span className="font-medium text-cyan-400">Social:</span>{' '}
+                  <a 
+                    href="https://facebook.com/davben72" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    facebook.com/davben72
+                  </a>
+                </p>
+                <p className="text-gray-300">
+                  <span className="font-medium text-cyan-400">Visual Feed:</span>{' '}
+                  <a 
+                    href="https://instagram.com/dave_benedict" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    instagram.com/dave_benedict
+                  </a>
+                </p>
+                <p className="text-gray-300">
                   <span className="font-medium text-cyan-400">Repository:</span>{' '}
                   <a 
                     href="https://github.com/davebenedict" 

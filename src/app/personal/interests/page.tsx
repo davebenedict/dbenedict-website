@@ -76,8 +76,8 @@ export default function InterestsPage() {
             <div className="p-6 h-full flex flex-col">
               <div className="mb-4">
                 <div className="w-16 h-16 bg-cyan-500/10 border-2 border-cyan-500/30 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-10 h-10 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <svg className="w-10 h-10 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 22H5v-2h14v2M17.16 8.26A2.5 2.5 0 0 0 15 3c-.28 0-.5.22-.5.5s.22.5.5.5a1.5 1.5 0 0 1 1.5 1.5c0 .28-.22.5-.5.5a2.5 2.5 0 0 0-2.45 2h-.03c-.18-1.13-1.01-2.02-2.02-2.02S9.68 6.87 9.5 8h-.03A2.5 2.5 0 0 0 7 6c-.28 0-.5-.22-.5-.5A1.5 1.5 0 0 1 8 4c.28 0 .5-.22.5-.5S8.28 3 8 3a2.5 2.5 0 0 0-2.16 5.26L4 18h16l-2.84-9.74z"/>
                   </svg>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-3">
@@ -162,8 +162,15 @@ export default function InterestsPage() {
             <div className="p-6 h-full flex flex-col">
               <div className="mb-4">
                 <div className="w-16 h-16 bg-blue-500/10 border-2 border-blue-500/30 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg className="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    {/* Simple rooster silhouette */}
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-1 0-2 1-2 2v1c-1 0-2 1-2 2v2c0 1 1 2 2 2h1v8c0 1 1 2 2 2h2c1 0 2-1 2-2v-8h1c1 0 2-1 2-2V8c0-1-1-2-2-2V5c0-1-1-2-2-2h-4z"/>
+                    {/* Comb */}
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 3c0-1 1-2 2-2m2 0c1 0 2 1 2 2m-6 0h6"/>
+                    {/* Beak */}
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 8l-2 1"/>
+                    {/* Tail feathers */}
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 12c1 0 2 1 3 2"/>
                   </svg>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-3">

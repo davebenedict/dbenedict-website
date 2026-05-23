@@ -55,7 +55,7 @@ export default function PersonalHome() {
           </div>
           
           <h1 className="text-5xl font-extrabold sm:text-6xl md:text-7xl mb-6">
-            <span className="block text-white mb-2">WELCOME TO</span>
+            <span className="block text-white mb-2">CONNECTED TO</span>
             <span className="block text-cyan-400 text-glow animate-glow-pulse">
               DAVID BENEDICT
             </span>

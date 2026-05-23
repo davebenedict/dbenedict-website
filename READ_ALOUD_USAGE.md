@@ -81,12 +81,44 @@ The component adds a cyan ring when reading. Customize with className:
 
 ## Configuration
 
-Edit `src/components/ReadAloud.tsx` to adjust:
+The component is currently set to **retro computer voice mode**:
 
 ```tsx
-utterance.rate = 1.2;   // Faster (0.1 to 10)
-utterance.pitch = 1.1;  // Higher pitch (0 to 2)
-utterance.volume = 1.0; // Louder (0 to 1)
+utterance.rate = 0.85;  // Slower, deliberate (old computer speed)
+utterance.pitch = 0.7;  // Lower pitch (robotic sound)
+utterance.volume = 0.9; // Louder (old speaker effect)
+```
+
+### Voice Style Presets
+
+Edit `src/components/ReadAloud.tsx` to change the style:
+
+**Current: Retro Computer** (default)
+```tsx
+utterance.rate = 0.85;
+utterance.pitch = 0.7;
+utterance.volume = 0.9;
+```
+
+**HAL 9000 Style** (very slow, deep)
+```tsx
+utterance.rate = 0.6;
+utterance.pitch = 0.5;
+utterance.volume = 1.0;
+```
+
+**Fast Robot** (quick, mechanical)
+```tsx
+utterance.rate = 1.3;
+utterance.pitch = 0.8;
+utterance.volume = 0.9;
+```
+
+**Normal Human** (natural)
+```tsx
+utterance.rate = 1.0;
+utterance.pitch = 1.0;
+utterance.volume = 0.8;
 ```
 
 ## Browser Support

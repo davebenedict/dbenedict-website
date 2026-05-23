@@ -21,10 +21,23 @@ export default function ReadAloud({ children, text, className = '' }: ReadAloudP
       const utterance = new SpeechSynthesisUtterance(text);
       utteranceRef.current = utterance;
       
-      // Optional: Configure voice settings
-      utterance.rate = 1.0; // Speed (0.1 to 10)
-      utterance.pitch = 1.0; // Pitch (0 to 2)
-      utterance.volume = 0.8; // Volume (0 to 1)
+      // Retro computer voice settings
+      utterance.rate = 0.85; // Slower, more deliberate (retro computer speed)
+      utterance.pitch = 0.7; // Lower pitch for robotic sound
+      utterance.volume = 0.9; // Slightly louder for that old speaker effect
+      
+      // Try to select a more robotic-sounding voice
+      const voices = window.speechSynthesis.getVoices();
+      const roboticVoice = voices.find(voice => 
+        voice.name.includes('Google UK English Male') || 
+        voice.name.includes('Microsoft David') ||
+        voice.name.includes('Alex') ||
+        voice.name.includes('Daniel') ||
+        voice.lang.startsWith('en')
+      );
+      if (roboticVoice) {
+        utterance.voice = roboticVoice;
+      }
       
       // Event handlers
       utterance.onstart = () => setIsReading(true);

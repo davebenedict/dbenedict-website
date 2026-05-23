@@ -26,27 +26,27 @@ export default function ReadAloud({ children, text, className = '' }: ReadAloudP
       const utterance = new SpeechSynthesisUtterance(text);
       utteranceRef.current = utterance;
       
-      // Young female cyberpunk British voice - energetic and modern
-      utterance.rate = 1.0; // Normal speed, youthful energy
-      utterance.pitch = 1.2; // Higher pitch for younger sound (20s)
-      utterance.volume = 1.0; // Full volume for presence
+      // 80s British computer assistant voice - retro and robotic
+      utterance.rate = 0.85; // Slower, deliberate 80s computer pace
+      utterance.pitch = 0.7; // Lower pitch for male voice with robotic quality
+      utterance.volume = 1.0; // Full volume for clarity
       
-      // Try to select a British female voice
+      // Try to select a British male voice
       const voices = window.speechSynthesis.getVoices();
-      const britishFemaleVoice = voices.find(voice => 
-        // Prefer Google UK Female voices
-        voice.name.includes('Google UK English Female') ||
-        voice.name.includes('Microsoft Hazel') || // UK Female
-        voice.name.includes('Microsoft Susan') || // UK Female
-        voice.name.includes('Kate') || // UK Female (macOS)
-        voice.name.includes('Serena') || // UK Female (macOS)
-        // Fallback to any UK voice
-        (voice.lang === 'en-GB' && voice.name.toLowerCase().includes('female')) ||
-        // Last resort: any female English voice
-        (voice.lang.startsWith('en') && voice.name.toLowerCase().includes('female'))
+      const britishMaleVoice = voices.find(voice => 
+        // Prefer Google UK Male voices
+        voice.name.includes('Google UK English Male') ||
+        voice.name.includes('Microsoft George') || // UK Male
+        voice.name.includes('Microsoft Ryan') || // UK Male
+        voice.name.includes('Daniel') || // UK Male (macOS)
+        voice.name.includes('Oliver') || // UK Male (macOS)
+        // Fallback to any UK male voice
+        (voice.lang === 'en-GB' && voice.name.toLowerCase().includes('male')) ||
+        // Last resort: any male English voice
+        (voice.lang.startsWith('en') && voice.name.toLowerCase().includes('male'))
       );
-      if (britishFemaleVoice) {
-        utterance.voice = britishFemaleVoice;
+      if (britishMaleVoice) {
+        utterance.voice = britishMaleVoice;
       }
       
       // Event handlers

@@ -163,14 +163,8 @@ export default function InterestsPage() {
               <div className="mb-4">
                 <div className="w-16 h-16 bg-blue-500/10 border-2 border-blue-500/30 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                    {/* Simple rooster silhouette */}
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-1 0-2 1-2 2v1c-1 0-2 1-2 2v2c0 1 1 2 2 2h1v8c0 1 1 2 2 2h2c1 0 2-1 2-2v-8h1c1 0 2-1 2-2V8c0-1-1-2-2-2V5c0-1-1-2-2-2h-4z"/>
-                    {/* Comb */}
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 3c0-1 1-2 2-2m2 0c1 0 2 1 2 2m-6 0h6"/>
-                    {/* Beak */}
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 8l-2 1"/>
-                    {/* Tail feathers */}
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 12c1 0 2 1 3 2"/>
+                    {/* Barbell */}
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M3 10v4M21 10v4M5 9v6M19 9v6M7 8v8M17 8v8"/>
                   </svg>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-3">
@@ -179,13 +173,13 @@ export default function InterestsPage() {
               </div>
               
               <p className="text-gray-300 mb-6 flex-grow">
-                We own CrossFit Kapaa, where fitness meets community. My wonderful partner Bethanie is a competitive Masters athlete who inspires everyone around her with her dedication and strength.
+                We own <a href="https://www.crossfitkapaa.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">CrossFit Kapaa</a>, where fitness meets community. My wonderful partner Bethanie is a competitive Masters athlete who inspires everyone around her with her dedication and strength.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-gray-400">
                   <span className="text-blue-400 font-mono mr-2">GYM:</span>
-                  <span>CrossFit Kapaa</span>
+                  <a href="https://www.crossfitkapaa.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">CrossFit Kapaa</a>
                 </div>
                 <div className="flex items-center text-sm text-gray-400">
                   <span className="text-blue-400 font-mono mr-2">ATHLETE:</span>

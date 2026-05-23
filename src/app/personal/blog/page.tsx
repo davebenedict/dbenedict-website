@@ -18,21 +18,21 @@ export default function BlogPage() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0">
               <Link href="/personal">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">David Benedict</h1>
+                <h1 className="text-2xl font-bold text-cyan-400 text-glow animate-glow-pulse">DAVID BENEDICT</h1>
               </Link>
             </div>
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/personal" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+              <div className="ml-10 flex items-baseline space-x-1">
+                <Link href="/personal" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Home
                 </Link>
-                <Link href="/personal/about" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/about" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   About
                 </Link>
-                <Link href="/personal/blog" className="text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/blog" className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Blog
                 </Link>
-                <Link href="/personal/contact" className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link href="/personal/contact" className="text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 px-3 py-2 rounded-md text-sm font-medium transition-all border border-transparent hover:border-cyan-500/30">
                   Contact
                 </Link>
               </div>
@@ -42,80 +42,84 @@ export default function BlogPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Blog
+        <div className="text-center mb-16">
+          <div className="inline-block mb-4">
+            <span className="px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-mono">
+              &lt;DATA STREAM /&gt;
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
+              BLOG TRANSMISSIONS
+            </span>
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Thoughts, tutorials, and insights on technology and development
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Technical insights, tutorials, and thoughts on emerging technologies
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <article
-              key={post.slug}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-            >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                    {post.category}
-                  </span>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    {new Date(post.date).toLocaleDateString('en-US', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
-                    })}
-                  </span>
+            <Link href={`/personal/blog/${post.slug}`} key={post.slug}>
+              <GlowCard glowColor="cyan">
+                <div className="p-6 h-full flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 text-xs font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 rounded-full font-mono">
+                      {post.category.toUpperCase()}
+                    </span>
+                    <span className="text-sm text-gray-400 font-mono">
+                      {new Date(post.date).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                      })}
+                    </span>
+                  </div>
+                  <h2 className="text-xl font-bold text-white mb-3 hover:text-cyan-400 transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-300 mb-4 flex-grow">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center text-cyan-400 text-sm font-mono mt-auto">
+                    <span>ACCESS DATA</span>
+                    <svg
+                      className="ml-2 w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  {post.title}
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {post.excerpt}
-                </p>
-                <Link
-                  href={`/personal/blog/${post.slug}`}
-                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium"
-                >
-                  Read more
-                  <svg
-                    className="ml-2 w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </article>
+              </GlowCard>
+            </Link>
           ))}
         </div>
 
         {posts.length === 0 && (
           <div className="mt-12 text-center">
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              No blog posts yet. Check back soon!
+            <p className="text-gray-300 mb-4 font-mono">
+              [ NO TRANSMISSIONS AVAILABLE ] - Check back soon!
             </p>
           </div>
         )}
       </main>
 
-      <footer className="bg-white dark:bg-gray-800 mt-20">
+      <footer className="bg-black/50 backdrop-blur-md border-t border-cyan-500/20 mt-20">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 dark:text-gray-400">
-            &copy; 2026 David Benedict. All rights reserved.
+          <p className="text-center text-gray-400">
+            &copy; 2026 <span className="text-cyan-400">David Benedict</span>. All rights reserved.
           </p>
         </div>
       </footer>
+      </div>
     </div>
   );
 }

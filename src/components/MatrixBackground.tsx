@@ -54,10 +54,10 @@ export default function MatrixBackground() {
         
         // Gradient from cyan (0, 255, 255) to purple (168, 85, 247)
         // Use position-based gradient for smooth transition
-        const gradientPosition = (i / drops.length + time * 0.1) % 1;
+        const gradientPosition = (i / drops.length + time * 0.05) % 1; // Slower animation
         const r = Math.floor(0 + gradientPosition * 168);
         const g = Math.floor(255 - gradientPosition * 170);
-        const b = Math.floor(255 - gradientPosition * 8);
+        const b = 255; // Keep blue at max for more vibrant colors
         
         ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
         ctx.font = `${adjustedFontSize}px monospace`;

@@ -33,7 +33,6 @@ People often ask me about my development setup, so I thought I'd share what I'm 
 
 I use **PowerShell** on Windows with:
 
-- Oh My Posh for a beautiful prompt
 - Windows Terminal for tabbed sessions
 - Git for version control
 

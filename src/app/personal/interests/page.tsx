@@ -114,42 +114,42 @@ export default function InterestsPage() {
             </div>
           </GlowCard>
 
-          {/* Intellivision Games Interest */}
+          {/* DJ / Music Production Interest */}
           <GlowCard glowColor="purple">
             <div className="p-6 h-full flex flex-col">
               <div className="mb-4">
                 <div className="w-16 h-16 bg-purple-500/10 border-2 border-purple-500/30 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                   </svg>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-3">
-                  Retro Gaming
+                  DJ & Music
                 </h2>
               </div>
               
               <p className="text-gray-300 mb-6 flex-grow">
-                Nostalgia for classic Intellivision games from the golden age of gaming. These vintage titles bring back memories of simpler times and pioneering game design.
+                Creating and mixing music as a DJ. I love exploring different sounds and crafting sets that move people. Check out my mixes and tracks on SoundCloud.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-gray-400">
                   <span className="text-purple-400 font-mono mr-2">PLATFORM:</span>
-                  <span>Intellivision</span>
+                  <span>SoundCloud</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-400">
-                  <span className="text-purple-400 font-mono mr-2">ERA:</span>
-                  <span>1979-1990</span>
+                  <span className="text-purple-400 font-mono mr-2">PROFILE:</span>
+                  <span>adequated</span>
                 </div>
               </div>
 
               <a
-                href="https://www.intellivision.us/intvgames/nostalgia/nostalgia.php"
+                href="https://soundcloud.com/adequated"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-400 font-bold rounded-lg hover:bg-purple-500 hover:text-black transition-all font-mono"
               >
-                EXPLORE GAMES
+                LISTEN ON SOUNDCLOUD
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>

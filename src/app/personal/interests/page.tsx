@@ -129,7 +129,7 @@ export default function InterestsPage() {
               </div>
               
               <p className="text-gray-300 mb-6 flex-grow">
-                Creating and mixing music as a DJ. I love exploring different sounds and crafting sets that move people. Check out my mixes and tracks on SoundCloud.
+                Creating and mixing music as a DJ. I love exploring different sounds and crafting sets that move people. I'm also part of <a href="https://www.pinkmammoth.org/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Pink Mammoth</a>, a Burning Man camp bringing music and community together.
               </p>
 
               <div className="space-y-3">
@@ -140,6 +140,10 @@ export default function InterestsPage() {
                 <div className="flex items-center text-sm text-gray-400">
                   <span className="text-purple-400 font-mono mr-2">PROFILE:</span>
                   <span>adequated</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-400">
+                  <span className="text-purple-400 font-mono mr-2">CAMP:</span>
+                  <a href="https://www.pinkmammoth.org/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">Pink Mammoth</a>
                 </div>
               </div>
 

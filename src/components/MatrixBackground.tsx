@@ -39,7 +39,7 @@ export default function MatrixBackground() {
         // Calculate 3D perspective
         const depth = depths[i];
         const scale = 0.4 + depth * 0.6; // Scale based on depth (0.4 to 1.0)
-        const alpha = 0.2 + depth * 0.8; // Opacity based on depth
+        const alpha = 0.4 + depth * 0.6; // Increased opacity for better visibility
         
         // Add dramatic wave/curve effect with multiple frequencies
         const wave1 = Math.sin(time + i * 0.05) * 80 * depth;
@@ -52,9 +52,14 @@ export default function MatrixBackground() {
         // Adjust font size based on depth for perspective
         const adjustedFontSize = fontSize * scale;
         
-        // Set color with depth-based opacity and slight color shift
-        const colorShift = Math.floor(depth * 50);
-        ctx.fillStyle = `rgba(${colorShift}, ${255 - colorShift}, 255, ${alpha})`;
+        // Gradient from cyan (0, 255, 255) to purple (168, 85, 247)
+        // Use position-based gradient for smooth transition
+        const gradientPosition = (i / drops.length + time * 0.1) % 1;
+        const r = Math.floor(0 + gradientPosition * 168);
+        const g = Math.floor(255 - gradientPosition * 170);
+        const b = Math.floor(255 - gradientPosition * 8);
+        
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
         ctx.font = `${adjustedFontSize}px monospace`;
         
         const text = characters[Math.floor(Math.random() * characters.length)];
@@ -93,7 +98,7 @@ export default function MatrixBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-20 dark:opacity-30"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-40 dark:opacity-50"
       style={{ zIndex: 0 }}
     />
   );
